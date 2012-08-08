@@ -36,6 +36,10 @@ AC_ARG_WITH([convert-dir],
 	[AC_HELP_STRING([--with-convert-dir=<path/to/omfs>],
 			[Chose a specific path to convert when installed [default=<prefix>/share/omf]])], ,
 	with_convert_dir="$prefix/share/omf")
+AC_ARG_WITH([getopt],
+	[AC_HELP_STRING([--with-getopt=<getopt>],
+			[Choose a getopt(1) command compatible with the linux-utils getopt [default=<getopt>]])], ,
+	with_getopt="getopt")
 
 DISTCHECK_CONFIGURE_FLAGS="--disable-skdb-update"
 AC_SUBST(DISTCHECK_CONFIGURE_FLAGS)
@@ -48,6 +52,9 @@ with_convert_dir="/usr/local/share/omf"
 fi
 
 echo conv dir is $with_convert_dir
+
+GETOPT="$with_getopt"
+AC_SUBST([GETOPT])
 
 if test "x$enable_installed" = "xyes"; then
     AC_DEFINE(ENABLE_INSTALL, 1, [turn on Installed Mode])
