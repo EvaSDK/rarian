@@ -96,8 +96,8 @@ process_new_url (char *input)
     }
     if (i == 1) {
       /* Normal path.  Add file:/ to the start */
-      new_url = (char *) malloc (sizeof(char) * (strlen (input) + 7));
-      sprintf (new_url, "file:/%s", input);
+      new_url = (char *) malloc (sizeof(char) * (strlen (input) + 8));
+      sprintf (new_url, "file://%s", input);
     } else {
       /* Don't know what to do.  Just copy and append file: to it */
       new_url = (char *) malloc (sizeof(char) * (strlen(input) + 6));
