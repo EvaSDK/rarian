@@ -183,6 +183,26 @@ dnl
 
 # Checks for library functions.
 
+AC_MSG_CHECKING([whether to use system tinyxml])
+AC_LANG_PUSH([C++])
+SAVED_LIBS=$LIBS
+LIBS="$LIBS -ltinyxml"
+AC_LINK_IFELSE(
+	[AC_LANG_PROGRAM(
+		[#include <tinyxml.h>],
+		[TiXmlElement root("myroot")])
+	],
+	[
+		RARIAN_LIBS="$RARIAN_LIBS -ltinyxml"
+		HAVE_TINYXML=1
+		AC_MSG_RESULT([yes])
+	],
+	[AC_MSG_FAILURE([no])]
+)
+LIBS=$SAVED_LIBS
+AC_SUBST(RARIAN_LIBS)
+AC_LANG_POP([C++])
+
 AC_CONFIG_FILES([Makefile
 		 rarian.pc
                  data/Makefile

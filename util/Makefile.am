@@ -1,7 +1,8 @@
 INCLUDES =      \
     -I$(srcdir)/../librarian
 LDADD =         \
-    ../librarian/librarian.la
+    ../librarian/librarian.la \
+    $(RARIAN_LIBS)
 
 if ENABLE_SK_COMPAT
 bin_SCRIPTS = \
@@ -39,32 +40,14 @@ endif
 if ENABLE_SK_COMPAT
 rarian_sk_migrate_SOURCES =  \
     rarian-sk-migrate.cpp    \
-    tinystr.cpp             \
-    tinyxml.cpp             \
-    tinyxmlerror.cpp        \
-    tinyxmlparser.cpp       \
-    tinystr.h               \
-    tinyxml.h               \
     ../librarian/rarian-reg-full.h \
     ../librarian/rarian-reg-full.c
 
 rarian_sk_preinstall_SOURCES = \
-    rarian-sk-preinstall.cpp \
-    tinystr.cpp             \
-    tinyxml.cpp             \
-    tinyxmlerror.cpp        \
-    tinyxmlparser.cpp       \
-    tinystr.h               \
-    tinyxml.h
+    rarian-sk-preinstall.cpp
 
 rarian_sk_get_cl_SOURCES =  \
-    rarian-sk-get-cl.cpp    \
-    tinystr.cpp             \
-    tinyxml.cpp             \
-    tinyxmlerror.cpp        \
-    tinyxmlparser.cpp       \
-    tinystr.h               \
-    tinyxml.h
+    rarian-sk-get-cl.cpp
 
 rarian_sk_get_cl_CXXFLAGS = -DDATADIR=\""$(datadir)"\" -DLOCALSTATEDIR=\""$(localstatedir)"\"
 

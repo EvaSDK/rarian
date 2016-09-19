@@ -26,7 +26,7 @@
 #include <dirent.h>
 #include <unistd.h>
 
-#include <../util/tinyxml.h>
+#include <tinyxml.h>
 
 #include <stdio.h>
 #include <sys/types.h>
@@ -116,10 +116,10 @@ process_node (TiXmlNode *pParent, RrnReg *reg)
 
 	switch ( t )
 	{
-	case TiXmlNode::DOCUMENT:
+	case TiXmlNode::TINYXML_DOCUMENT:
 		break;
 
-	case TiXmlNode::ELEMENT:
+	case TiXmlNode::TINYXML_ELEMENT:
 	   if (!strcmp (pParent->Value(), "omf")) {
 	       am_parsing = true;
 	   } else if (!am_parsing) {

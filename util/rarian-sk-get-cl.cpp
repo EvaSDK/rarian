@@ -131,10 +131,10 @@ process_node (TiXmlNode *pParent)
 
 	switch ( t )
 	{
-	case TiXmlNode::DOCUMENT:
+	case TiXmlNode::TINYXML_DOCUMENT:
 		break;
 
-	case TiXmlNode::ELEMENT:
+	case TiXmlNode::TINYXML_ELEMENT:
 	   if (!strcmp (pParent->Value(), "sect")) {
 	     get_attribute (pParent->ToElement());
       	     rrn_for_each_in_category ((RrnForeachFunc) get_docs, cat, pParent);
@@ -223,7 +223,7 @@ int main (int argc, char * argv[])
     exit (2);
   }
   
-  TiXmlNode *pParent = doc.FirstChildElement();
+  TiXmlNode *pParent = doc.FirstChild();
   
   process_node (pParent);
   

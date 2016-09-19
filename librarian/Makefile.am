@@ -20,14 +20,9 @@ librarian_la_SOURCES  =  \
 if ENABLE_OMF_READ
 librarian_la_SOURCES  +=  	\
     rarian-omf.h		\
-    rarian-omf.cpp		\
-    $(top_srcdir)/util/tinyxml.cpp			\
-    $(top_srcdir)/util/tinyxml.h			\
-    $(top_srcdir)/util/tinyxmlparser.cpp		\
-    $(top_srcdir)/util/tinystr.cpp			\
-    $(top_srcdir)/util/tinystr.h			\
-    $(top_srcdir)/util/tinyxmlerror.cpp	
+    rarian-omf.cpp
 endif
 
 librarian_la_CFLAGS = -DDATADIR=\""$(datadir)"\" -DSYSCONFDIR=\""$(sysconfdir)"\" -DI_KNOW_RARIAN_0_8_IS_UNSTABLE
 librarian_la_LDFLAGS = -export-symbols-regex "^rrn_.*"
+librarian_la_LIBADD = $(RARIAN_LIBS)
