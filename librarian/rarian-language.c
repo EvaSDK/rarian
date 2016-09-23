@@ -89,6 +89,9 @@ rrn_language_init (char *lang)
       loc = getenv ("LC_ALL");
     }
     if (!loc || !strcmp (loc, "")) {
+      loc = getenv ("LC_MESSAGES");
+    }
+    if (!loc || !strcmp (loc, "")) {
       loc = getenv ("LANG");
     }
     
