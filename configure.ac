@@ -5,7 +5,7 @@ AC_PREREQ(2.59)
 AC_INIT(rarian, 0.8.1)
 AC_CONFIG_SRCDIR([util/rarian-example.c])
 AC_CONFIG_HEADER([config.h])
-AM_INIT_AUTOMAKE([foreign dist-bzip2 dist-gzip])
+AM_INIT_AUTOMAKE([foreign dist-bzip2])
 
 AM_MAINTAINER_MODE
 
