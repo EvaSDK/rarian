@@ -665,8 +665,9 @@ rrn_info_find_from_uri (char *uri, char *section)
 
   while (l) {
     if ((l->reg->doc_name && !strcmp (uri, l->reg->doc_name)) ||
-	(!strcmp (uri, l->reg->name))) {
-      if (!section || (*section && l->reg->section && !strcmp (l->reg->section, section))) {
+	(!strncmp (uri, l->reg->name, strlen(uri)))) {
+      if ((!section && !strcmp (uri, l->reg->name)) ||
+	  (section && *section && l->reg->section && !strcmp (l->reg->section, section))) {
 	return l->reg;
       } else {
 	best_result = l;
