@@ -294,10 +294,12 @@ scan_directory (char *dir)
 	  char *suffix = NULL;
 	  
 	  suffix = strrchr (full_name, '.');
-	  if (!strcmp (suffix, ".document")) {
-	    process_file (full_name);
-	  } else if (!strcmp (suffix, ".section")) {
-	    process_section (full_name);
+	  if (suffix) {
+	    if (!strcmp (suffix, ".document")) {
+	      process_file (full_name);
+	    } else if (!strcmp (suffix, ".section")) {
+	      process_section (full_name);
+	    }
 	  }
 	} else if (S_ISDIR(buf.st_mode) && strcmp (dp->d_name, ".") &&
 		   strcmp (dp->d_name, "..") &&
